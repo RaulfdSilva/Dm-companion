@@ -2,8 +2,8 @@
 
 A mobile toolkit for Dungeon Masters running Dungeons & Dragons with the 2024 rules.
 
-This initial setup provides an Expo application with React Native, strict TypeScript,
-and Expo Router. The home screen displays **DM Companion** and
+The application uses Expo with React Native, strict TypeScript, and Expo Router,
+and includes a reusable TypeScript dice engine. The home screen displays **DM Companion** and
 **Treasure Generator — Coming Soon**. Treasure generation and other gameplay tools
 are planned for future work; no backend, authentication, or database is included.
 
@@ -34,12 +34,46 @@ corresponding emulator or simulator.
 ## Validation
 
 ```sh
+npm test
 npm run typecheck
 npm run lint
 ```
 
 TypeScript runs in strict mode. ESLint uses Expo's recommended configuration and
 treats warnings as failures.
+
+## Dice engine
+
+The framework-independent API lives in `src/lib/dice.ts`:
+
+```ts
+import { parseDiceExpression, rollDice } from './src/lib/dice';
+
+parseDiceExpression('2d6+3');
+// { count: 2, sides: 6, modifier: 3 }
+
+rollDice('2d6+3', () => 0.5);
+// { count: 2, sides: 6, modifier: 3, rolls: [4, 4], total: 11 }
+```
+
+`parseDiceExpression(expression)` returns a `DiceExpression` with `count`, `sides`,
+and a signed `modifier` (zero when omitted). Expressions contain one dice group
+and an optional integer modifier, such as `1d6`, `2d8`, `1d100`, or `3d10-2`.
+Uppercase `D`, surrounding whitespace, and spaces around the modifier are accepted.
+
+`rollDice(expression, random?)` returns a `DiceRoll`, adding individual `rolls` and
+the final `total`. The optional `RandomNumberGenerator` defaults to `Math.random`;
+it must return a finite number in `[0, 1)` and is called once per die. Modifiers
+are applied once after rolling, and totals may be zero or negative.
+
+Dice counts must be between 1 and 1,000 to bound work and allocation. Sides must be
+positive safe integers (including one-sided dice); modifiers, possible dice sums,
+and possible totals must also be safe integers. Malformed expressions throw
+`SyntaxError`; invalid configurations or RNG samples throw `RangeError`.
+Non-string input throws `TypeError`.
+
+Tests use Node's built-in test runner with `tsx` to execute TypeScript. No React
+Native or Expo runtime is needed to use or test the engine.
 
 ## Project structure
 
@@ -50,6 +84,7 @@ app/
 src/
   components/      Shared UI components, when needed
   features/        Future feature-specific screens, components, and logic
+  lib/             Framework-independent utilities and their unit tests
 app.json           Expo application configuration
 eslint.config.js   ESLint configuration
 tsconfig.json      Strict TypeScript configuration
