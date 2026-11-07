@@ -63,6 +63,42 @@ test('accepts safe integer boundaries for sides and totals', () => {
   assert.equal(rollDice(`1d1-${maximum}`, () => 0).total, 1 - maximum);
 });
 
+for (const sides of [
+  2 ** 32 - 1,
+  2 ** 32,
+  2 ** 52 - 1,
+  2 ** 52,
+  2 ** 52 + 1,
+  Number.MAX_SAFE_INTEGER - 1,
+  Number.MAX_SAFE_INTEGER,
+]) {
+  test(`keeps d${sides} within its faces at floating-point boundaries`, () => {
+    const closestToOne = 1 - Number.EPSILON / 2;
+
+    for (const value of [
+      0,
+      Number.MIN_VALUE,
+      1 - Number.EPSILON * 2,
+      1 - Number.EPSILON,
+      closestToOne,
+    ]) {
+      const result = rollDice(`1d${sides}`, () => value);
+      const [roll] = result.rolls;
+
+      assert.ok(Number.isSafeInteger(roll));
+      assert.ok(roll >= 1 && roll <= sides, `RNG ${value} produced ${roll}`);
+      assert.equal(result.total, roll);
+
+      if (value === 0 || value === Number.MIN_VALUE) {
+        assert.equal(roll, 1);
+      }
+      if (value === closestToOne) {
+        assert.equal(roll, sides);
+      }
+    }
+  });
+}
+
 for (const expression of ['2d6+0', '2d6-0', '2d6']) {
   test(`normalizes the zero modifier in ${expression}`, () => {
     assert.equal(rollDice(expression, () => 0).modifier, 0);

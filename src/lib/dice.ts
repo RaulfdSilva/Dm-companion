@@ -66,7 +66,8 @@ function rollDie(sides: number, random: RandomNumberGenerator): number {
     throw new RangeError('Random number generator must return a number in [0, 1).');
   }
 
-  return Math.floor(value * sides) + 1;
+  // Cap the result at the final face to guard against floating-point rounding.
+  return Math.min(sides, Math.floor(value * sides) + 1);
 }
 
 export function rollDice(
