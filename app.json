@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "DM Companion",
+    "slug": "dm-companion",
+    "version": "0.1.0",
+    "scheme": "dm-companion",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": ["expo-router"]
+  }
+}
