@@ -120,7 +120,7 @@ test('rejects malformed currency reward amounts with contextual errors', () => {
   for (const field of ['denomination', 'dice', 'multiplier'] as const) {
     const original = CURRENCY_TABLES[0].rows[1].reward;
     if (original.kind !== 'currency') throw new Error('test setup');
-    const { [field]: _omitted, ...missing } = original.amount;
+    const missing = Object.fromEntries(Object.entries(original.amount).filter(([key]) => key !== field));
     rejectAmount(missing, field);
     rejectAmount({ ...original.amount, [field]: undefined }, field);
     rejectAmount({ ...original.amount, [field]: null }, field);
