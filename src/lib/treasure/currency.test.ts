@@ -107,6 +107,32 @@ test('rejects invalid denominations, dice and multipliers', () => {
   invalid((t) => setRow(t, 0, 0, { reward: null }), /empty reward/);
 });
 
+test('rejects malformed currency reward amounts with contextual errors', () => {
+  const rowId = CURRENCY_TABLES[0].rows[1].id;
+  const tableId = CURRENCY_TABLES[0].id;
+  const rejectAmount = (amount: unknown, field: string) => {
+    invalid((tables) => setRow(tables, 0, 1, { reward: { kind: 'currency', amount } }),
+      new RegExp(`(?:missing|malformed).*\\b${field}\\b.*${rowId}.*${tableId}`));
+  };
+  for (const amount of [undefined, null, 0, '2d6', [], true]) {
+    rejectAmount(amount, 'amount');
+  }
+  for (const field of ['denomination', 'dice', 'multiplier'] as const) {
+    const original = CURRENCY_TABLES[0].rows[1].reward;
+    if (original.kind !== 'currency') throw new Error('test setup');
+    const { [field]: _omitted, ...missing } = original.amount;
+    rejectAmount(missing, field);
+    rejectAmount({ ...original.amount, [field]: undefined }, field);
+    rejectAmount({ ...original.amount, [field]: null }, field);
+  }
+  invalid((tables) => setRow(tables, 0, 1, {
+    reward: { kind: 'currency', amount: { denomination: 'GP', dice: {}, multiplier: 1 } },
+  }), new RegExp(`invalid currency dice.*${rowId}.*${tableId}`));
+  invalid((tables) => setRow(tables, 0, 1, {
+    reward: { kind: 'currency', amount: { denomination: 'GP', dice: '2d6', multiplier: '2' } },
+  }), new RegExp(`invalid currency multiplier.*${rowId}.*${tableId}`));
+});
+
 test('all nested approved data are immutable', () => {
   assert.ok(Object.isFrozen(CURRENCY_TABLES));
   for (const table of CURRENCY_TABLES) {
