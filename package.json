@@ -7,7 +7,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "test": "node --import tsx src/lib/dice.test.ts",
+    "test": "node --import tsx --test src/lib/*.test.ts src/lib/treasure/*.test.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings=0"
   },
