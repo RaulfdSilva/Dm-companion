@@ -1,6 +1,7 @@
-# Treasure economy design — v0.1 proposal
+# Treasure economy design — v0.1 review revision
 
-Date: 2026-11-08. **Status: draft for owner review; the proposed economy is not approved.**
+Date: 2026-11-08. **Status: approved core parameters incorporated; Common treatment
+and remaining catalog/selection details require review. Not ready for implementation.**
 This is a design specification only. No treasure dataset, generator, UI, dependency,
 or dice-engine change is part of this task.
 
@@ -9,8 +10,19 @@ or dice-engine change is part of this task.
 The owner has approved four CR bands (0–4, 5–10, 11–16, 17+), currency-only
 individual treasure, party-wide hoards containing currency with a chance of magic
 items, SRD 5.2.1 ingredients, original distributions, and no gems or art objects.
-Those decisions are retained. All amounts, dice formulas, probability ranges,
-cadence assumptions, and additional selection policies **below are proposals**.
+The owner has also approved the existing currency distributions and expectations,
+magic appearance/rarity weights, one-item-per-hoard cap, 40% consumable / 60%
+permanent split for Uncommon through Very Rare, and the exclusions listed below.
+Duplicates across separate generations are allowed; no duplicate prevention is to
+be implemented. Hoard amounts remain independent of party size. Eight individual
+rewards and two hoards per progression interval are a calibration assumption,
+not a mandatory gameplay rule.
+
+Common consumables and permanent items are allowed **provided eligible SRD 5.2.1
+examples exist**. No Common permanent candidate was verified in the audited PDF.
+The source check and recommended exception below therefore need owner review;
+conditional 40:60 calculations are provided without inventing an eligible pool.
+Approved parameters are not reopened by the remaining questions.
 
 The tables were constructed for this design from a chosen small-purse distribution,
 a party-cache distribution, and explicit scaling factors. They are not copied,
@@ -40,8 +52,8 @@ web tables, as the item source. Printed and PDF page numbers match.
 | --- | --- | --- |
 | CP, SP, EP, GP, and PP; one GP equals 100 CP or 10 SP; one EP equals half a GP; one PP equals 10 GP | Equipment → Coins → Coin Values, [p. 89][srd89] | Random rewards use SP, GP, and PP for compact amounts. CP and EP remain valid conversion units but are not sampled in this proposal. |
 | Mundane equipment prices and a basic Potion of Healing price | Equipment → Armor, [p. 92][srd92]; Adventuring Gear → Potion of Healing, [p. 99][srd99] | Use 1,500-GP Plate Armor and a 50-GP basic potion as purchasing-power checks, not as mandatory purchases or loot targets. |
-| Magic-item rarity values and consumable adjustments; underlying equipment cost is added | Magic Items → Magic Item Values by Rarity, [pp. 205–206][srd205] | Appearance probabilities, rarity weights, and consumable/permanent mix are original. Values are planning estimates, not guaranteed sale proceeds. |
-| Magic-item entries, rarity variants, and attunement requirements | Magic Items A–Z, [pp. 209–253][srd209]; Equipment → Attunement, [pp. 102–103][srd102] | A curated eligible pool and its exclusions are proposed below. No item mechanics are changed. |
+| Magic-item rarity values and consumable adjustments; underlying equipment cost is added | Magic Items → Magic Item Values by Rarity, [pp. 205–206][srd205] | Appearance probabilities, rarity weights, and treatment probabilities are original project decisions. Common treatment remains under review; values are planning estimates, not guaranteed sale proceeds. |
+| Magic-item entries, rarity variants, and attunement requirements | Magic Items A–Z, [pp. 209–253][srd209]; Equipment → Attunement, [pp. 102–103][srd102] | Eligible candidates are verified below; the final curated pool still requires review. Exclusions are owner-approved. No item mechanics or rarities are changed. |
 | Higher-level starting-equipment guidance | Character Creation → Starting Equipment at Higher Levels, [p. 24][srd24] | This is context, not an official cumulative wealth curve or a source of treasure quantities. It does not approve this economy. |
 
 The SRD has no CR-indexed individual/hoard distribution to implement; see the audit's
@@ -59,7 +71,7 @@ end of this document. Original table licensing remains for the owner to decide.
   A purse and a hoard must not represent the same money twice.
 - **Calibration cadence:** four characters, eight distinct individual-purse rolls
   and two distinct party-hoard rolls per level-sized reward interval. This is a
-  proposed budget assumption, not a session, XP, or kill-count rule. The purses are
+  calibration assumption, not a mandatory session, XP, or kill-count rule. The purses are
   outside the two hoards' contents. No income from other sources or expenses is
   assumed in the calculations.
 - **CR assignment:** use the creature's CR for its purse. Proposed hoard handling
@@ -128,7 +140,7 @@ outcomes near the middle without eliminating occasional richer rewards.
 
 ## Hoard magic: appearance, rarity, and item selection
 
-**Original proposal:** each hoard contains zero or one magic item. First roll the
+**Approved original design:** each hoard contains zero or one magic item. First roll the
 appearance selector. On success, independently roll the conditional rarity selector.
 An item is one catalog reward unit, including a matched pair if the entry requires
 it; it is not one item per character. There are no repeat appearance rolls.
@@ -154,33 +166,73 @@ per hoard are:
 For example, a Rare item at CR 5–10 occurs with `0.60×0.10 = 6%` probability,
 not 10%. These are reward probabilities, not probabilities of buying an item.
 
-### Proposed eligible pool and consumable policy
+### Verified item-pool viability
 
-Common results select a **one-use consumable**. For Uncommon, Rare, and Very Rare,
-an independent `1d100` selects a one-use consumable on **01–40 (40%)** or a
-permanent item on **41–100 (60%)**. “Permanent” here means an enduring item, not
-an item with unlimited uses; rechargeable items remain in this group. A healing
-potion's precise rarity variant must match the rolled rarity.
+“Permanent” means an enduring item, not an item with unlimited uses; rechargeable
+items remain in this group. A potion's precise rarity variant must match the roll.
+The following are **source-verification examples**, not a populated generator
+catalog or approval of each item's balance for every character.
 
-Select uniformly within the approved pool for that rarity and treatment; unequal
-rarity weights above do not imply equal power within a rarity. Pools should contain
-only verified SRD entries with their exact variants, conditions, and provenance.
-The calculations assume sampling with replacement across hoards: duplicates can
-occur, and no duplicate reroll is implicit. This handling also requires owner review.
-Common consumable candidates do exist, including Bead of Nourishment (p. 213),
-Potion of Climbing (p. 235), and basic Potion of Healing (pp. 99, 236).
+| Rarity | Verified eligible consumable candidates | Verified eligible permanent candidate | Pool status |
+| --- | --- | --- | --- |
+| Common | Bead of Nourishment, [p. 213][srd213]; Potion of Climbing, [p. 235][srd235]; basic Potion of Healing, [p. 236][srd236] | **None verified in SRD 5.2.1** | Consumable pool viable; permanent pool unresolved/blocked. |
+| Uncommon | Potion of Healing (greater), [p. 236][srd236] | Bag of Holding, [p. 212][srd212] | Both treatments have a viable SRD example. |
+| Rare | Potion of Healing (superior), [p. 236][srd236] | Amulet of Health, [p. 209][srd209] | Both treatments have a viable SRD example. |
+| Very Rare | Potion of Healing (supreme), [p. 236][srd236] | Amulet of the Planes, [p. 209][srd209] | Both treatments have a viable SRD example. |
 
-**Additional proposed exclusions, requiring owner review:** Legendary items,
-Artifacts, cursed items, Spell Scrolls, and magic ammunition. The first two have
-0% random appearance at every CR. Scrolls and ammunition have special valuation
-or quantity rules (SRD pp. 103, 206, 209, 244) that would complicate this first
-pricing model. Their omission is a design proposal, not a licensing prohibition.
-Gems and art objects are excluded by the already approved product scope.
+**Verified Common finding:** the complete Magic Items A–Z section, pp. 209–253,
+was checked in both layout-preserving and raw PDF text. Every whole-word Common
+occurrence was inspected, including variant tables. The Common item entries found
+are the three consumables above and cantrip/level-1 Spell Scrolls ([p. 244][srd244]),
+which are also consumable and excluded by the approved scope. A reference to Common
+as a language (p. 222), and the random-rarity effect table on p. 225, do not define
+a named Common permanent item. The latter cannot populate an unspecified permanent
+pool. No licensed Common permanent candidate can be named from this verification.
+This finding uses the same English PDF/hash as the content audit; it does not
+claim that no such item exists in other D&D publications.
 
-No catalog is populated in this task. Each supported rarity/treatment pool must
-be nonempty and reviewed before implementation; an empty pool is a data-validation
-failure, not a reason to reroll into a stronger rarity. Item suitability and
-attunement do not silently increase the number of items or their rarity.
+### Treatment split and the Common exception requiring review
+
+For **Uncommon, Rare, and Very Rare**, the approved independent `1d100` treatment
+selector is **01–40 consumable (40%), 41–100 permanent (60%)**.
+
+For **Common**, the preferred consistent split would also be 40:60 **if** a valid
+SRD permanent pool can be established. Under the presently verified source,
+recommend retaining **100% consumable as a specific v0.1 exception**. The reason
+is source availability, not a claim that Common permanent items are prohibited
+by the license. This exception requires owner review; it is not an automatically
+approved fallback. The existing Common-consumable model below is retained as a
+comparison baseline, and the conditional 40:60 scenario is calculated separately.
+
+Do not assign a 60% result to an empty permanent pool, fabricate an item,
+reclassify an Uncommon item as Common, import non-SRD content, or silently turn
+the result into another rarity/no item/consumable. Each of those would change
+either the approved probabilities or the source boundary. Resolve the Common
+treatment question before implementing the complete selection flow.
+
+### Approved exclusions and remaining selection details
+
+**Owner-approved exclusions:** Legendary items, Artifacts, cursed items, Spell
+Scrolls, and magic ammunition. Legendary and Artifact appearance is 0% at every
+CR. Gems and art objects remain excluded. Scrolls and ammunition have special
+valuation or quantity rules (SRD pp. 103, 206, 209, 244); exclusion is a product
+decision, not a licensing prohibition, and is no longer an unresolved question.
+
+The existing recommendation is uniform selection within the reviewed pool for
+the rolled rarity and treatment. Final pool membership, identifiers, reward-unit
+definitions, and within-pool selection details still require implementation review;
+unequal rarity weights do not imply equal power within a rarity. Preserve exact
+SRD variants, conditions, and provenance.
+
+Duplicates across separate generations are **approved**: selection does not remove
+an item from later pools, maintain a cross-generation exclusion list, or reroll a
+duplicate. No duplicate prevention is to be implemented. This is separate from
+avoiding paying out the same physical cache twice.
+
+No catalog is populated in this task. Every supported rarity/treatment combination
+must be nonempty and reviewed before implementation, or explicitly blocked as
+Common permanent is here. Item suitability and attunement do not silently increase
+the number of items or their rarity; empty pools must not alter approved rates.
 
 ## Monetary expectations: cash versus item value
 
@@ -189,11 +241,12 @@ Magic-item figures below are approximate economic planning figures, not cash.
 
 SRD p. 206 gives base values of 100/400/4,000/40,000 GP for Common/Uncommon/Rare/
 Very Rare items, halving the value for consumables other than Spell Scrolls.
-Under the proposed mix, the expected **base value conditional on rarity** is:
+Under the **Common-consumable comparison baseline** (exception pending review),
+the expected **base value conditional on rarity** is:
 
 | Rarity | Proposed calculation | Conditional base value |
 | --- | --- | ---: |
-| Common | All eligible results are consumables: `100/2` | 50 GP |
+| Common | Comparison baseline: all results consumable, `100/2` | 50 GP |
 | Uncommon | `0.40×200 + 0.60×400` | 320 GP |
 | Rare | `0.40×2,000 + 0.60×4,000` | 3,200 GP |
 | Very Rare | `0.40×20,000 + 0.60×40,000` | 32,000 GP |
@@ -210,6 +263,8 @@ For CR 11–16, this is
 | 11–16 | 146.50 GP | 5,590 GP | 1,839.75 GP | 7,429.75 GP |
 | 17+ | 732.50 GP | 16,770 GP | 5,780 GP | 22,550 GP |
 
+This table retains the existing source-supported baseline rather than implying
+that a Common permanent pool has been verified or its exception approved.
 These base estimates exclude underlying mundane-equipment costs. For an actual
 approved catalog, add the expected applicable surcharge, weighted by the chance
 of selecting each entry, as required by SRD pp. 205–206. Any entry-specific value
@@ -220,6 +275,35 @@ Changing exclusions or the consumable mix requires recalculation.
 SRD p. 205 makes magic-item buying/selling conditional on the campaign and describes
 availability differences. An appraised item is not a guaranteed buyer, shop stock,
 or reward of additional gold. Do not add its nominal value to the currency payout.
+
+### Conditional Common 40:60 calculation — not an implementable pool
+
+If a verified eligible Common permanent pool is established and this treatment
+split is approved, its conditional base mean would be
+`0.40×50 + 0.60×100 = 80 GP`, versus 50 GP in the comparison baseline. This uses
+the SRD rarity-value rule, **not an appraisal of an identified permanent item**.
+All other treatment splits, appearance/rarity probabilities, currency quantities,
+and currency expectations stay unchanged.
+
+The per-hoard difference is `p×qCommon×(80−50)`. At CR 0–4 this gives
+`0.40×0.60×30 = 7.20 GP`. The conditional projections are:
+
+| CR band | Conditional Common permanent chance per hoard | Conditional E[magic base] | Hoard cash + conditional magic base | Conditional permanent items per calibration interval |
+| --- | ---: | ---: | ---: | ---: |
+| 0–4 | 14.40% | 70.40 GP | 349.90 GP | 0.480 |
+| 5–10 | 7.20% | 336 GP | 1,733.50 GP | 0.720 |
+| 11–16 | 4.50% | 1,842 GP | 7,432 GP | 0.900 |
+| 17+ | 0% | 5,780 GP | 22,550 GP | 1.020 |
+
+Here `P(Common permanent) = p×qCommon×0.60` and
+`E[permanent per interval] = 2×p×0.60` when every rarity has a viable 40:60 split.
+The alternative Common consumable probabilities would be 9.60%, 4.80%, 3%, and
+0% per hoard; together with Common permanent they preserve the approved Common
+rarity probabilities of 24%, 12%, 7.50%, and 0%.
+
+These are conditional planning figures only. The empty Common permanent pool
+prevents implementing this scenario now; the nominal means are not a substitute
+for verifying an item or obtaining approval of a source-compatible exception.
 
 ## Representative low, typical, and high currency outcomes
 
@@ -268,7 +352,9 @@ between bands, while hoards increase 5×, 4×, 3×. Later absolute rewards rise 
 relative hoard growth tapers. No interpolation inside a band is proposed.
 
 For `n` purses and `h` hoards, expected party cash is
-`n×E[I] + h×E[H]`. With the proposed calibration of eight purses and two hoards:
+`n×E[I] + h×E[H]`. With eight purses and two hoards as the approved **calibration
+assumption, not a mandatory gameplay rule**, the Common-consumable comparison
+baseline gives:
 
 | Band used for all rewards in the interval | Expected party cash | Per-character illustration, four-way split | Expected magic items | Expected permanent items |
 | --- | ---: | ---: | ---: | ---: |
@@ -277,7 +363,8 @@ For `n` purses and `h` hoards, expected party cash is
 | 11–16 | 12,352 GP | 3,088 GP | 1.50 | 0.810 |
 | 17+ | 39,400 GP | 9,850 GP | 1.70 | 1.020 |
 
-Permanent expectation is `2×p×(1−qCommon)×0.60`. Purchases and crafting are not
+Baseline permanent expectation is `2×p×(1−qCommon)×0.60`; it assumes the Common
+exception and does not establish approval for it. Purchases and crafting are not
 included. Hoards supply roughly 96%, 92%, 91%, and 85% of cash respectively, so
 minor-enemy farming is not intended as the primary progression path. This remains
 dependent on limiting the number of eligible purses; CR alone cannot prevent farming.
@@ -291,7 +378,8 @@ balance, an assumed potion shop, or a prescription for how players spend money.
 As an exposure illustration, twenty level-sized reward intervals using bands for
 4/6/6/4 intervals yield **252,218.16 GP party cash**, or **63,054.54 GP each** with
 equal four-way division, plus **26.2 magic items** of which approximately **13.164
-are permanent**. That is about 3.29 permanent rewards per character, not a guarantee
+are permanent under the Common-consumable comparison baseline**. That is about
+3.29 permanent rewards per character, not a guarantee
 of equal distribution, usefulness, or attunement eligibility. Twenty intervals
 include play at level 20; this is not a claim of twenty level-ups. Actual monster
 CRs can differ from party level, so a real campaign needs its actual CR/reward mix.
@@ -302,6 +390,31 @@ and expected magic items; adding another eight purse rolls adds only another
 `8×E[I]`. Giving every character a full party hoard instead of a share multiplies
 hoard income by four in this example and violates the approved party-wide scope.
 
+### Cumulative comparison of the Common treatments
+
+The same illustrative 4/6/6/4 intervals, two hoards per interval, four-way sharing,
+and independent draws give the following totals. The 40:60 column is conditional
+on resolving the missing Common permanent pool; neither column selects a new
+Common policy on the owner's behalf.
+
+| Metric over the twenty-interval illustration | Common-consumable comparison baseline | Conditional Common 40:60 |
+| --- | ---: | ---: |
+| Party currency | 252,218.16 GP | 252,218.16 GP |
+| Currency per character | 63,054.54 GP | 63,054.54 GP |
+| Magic items, party total | 26.2 | 26.2 |
+| Permanent items, party total | 13.164 | 15.720 |
+| Permanent items per character | 3.291 | 3.930 |
+| Consumable items, party total | 13.036 | 10.480 |
+| Nominal magic base, party total | 72,811.40 GP | 72,939.20 GP |
+| Currency + nominal magic base, party total | 325,029.56 GP | 325,157.36 GP |
+
+Thus conditional Common 40:60 adds 2.556 expected permanent items, replaces the
+same number of consumables, and adds 127.80 GP of nominal base value across the
+whole illustration. Currency, total item count, rarity frequencies, and expectations
+for permanent Uncommon/Rare/Very Rare items do not change. Equipment surcharges,
+item-specific exceptions, market access, and real sale proceeds remain outside
+these nominal projections.
+
 ## Balance risks and proposed review checks
 
 | Risk | Quantified exposure or implication | Proposed response for review |
@@ -309,38 +422,50 @@ hoard income by four in this example and violates the approved party-wide scope.
 | Too many treasure events | A CR 17+ hoard averages 16,770 GP; four such caches in place of two add 33,540 GP party cash per interval. | Calibrate reward-event frequency first. Use a hoard for an adventure milestone, not every encounter. Keep unrelated quest payments in the same campaign budget. |
 | Repeated or farmable purses | An average alone does not cap rewards; arbitrarily many designated carriers produce arbitrarily much gold. | One roll per unique purse/cache; avoid paying summoned, created, or repeatedly searched creatures automatically. These eligibility rules need owner review. |
 | Boundary jumps | CR 4→5 increases mean purse value 10× and mean hoard value 5×. A minor CR change can dominate a session's wealth. | Show and review the selected band; do not automatically upgrade a hoard because one incidental creature crosses a threshold. No smoothing rule is approved here. |
+| Missing Common permanent pool | No eligible SRD Common permanent candidate was verified. Conditional 40:60 would assign 14.40%, 7.20%, and 4.50% of hoards in the first three bands to that empty pool. | Review the recommended Common-consumable exception. Do not fabricate entries, import non-SRD items, change rarities, or silently redistribute approved probabilities. |
+| Common treatment changes lasting rewards | Conditional Common 40:60 raises early permanent rewards per interval from 0.192 to 0.480. A Common permanent result would have a 14.40% per-hoard probability and about a 71.2% chance of appearing at least once over eight early hoards. | Keep this scenario visibly conditional. Its small nominal price change does not imply negligible gameplay impact; a genuine permanent pool would still require item-level review. |
 | Strong early magic | A permanent Rare result at CR 5–10 has `0.60×0.10×0.60 = 3.6%` chance per hoard; across twelve hoards, the chance of at least one is about 35.6%. | Curate entries within each rarity, especially combat bonuses, flight, and resource-generating effects. Rarity is a coarse measure, not a balance guarantee. |
-| High-tier Very Rare concentration | At CR 17+, any Very Rare item occurs on 12.75% of hoards; a permanent Very Rare item on 7.65%. Across eight hoards, the chance of at least one is about 66.4% or 47.1% respectively. | Keep the one-item cap and review the 15% conditional Very Rare weight. Legendary and Artifact rolls are proposed at zero, not silently available in an empty pool. |
+| High-tier Very Rare concentration | At CR 17+, any Very Rare item occurs on 12.75% of hoards; a permanent Very Rare item on 7.65%. Across eight hoards, the chance of at least one is about 66.4% or 47.1% respectively. These rates are unchanged by Common treatment. | Preserve the approved one-item cap and rarity weights. Monitor outcomes in later playtests; Legendary and Artifact rolls remain excluded, including when another pool is empty. |
 | Misleading magic-value averages | Very Rare results contribute 4,080 GP of the 5,780-GP nominal magic-base mean per CR 17+ hoard, despite appearing only 12.75% of the time. | Present coins separately from items; do not promise the combined mean as typical spendable wealth. Retest after approving the catalog and its value exceptions. |
 | Unlimited magic purchases or sales | The illustrated top-band cash share is 9,850 GP per character per interval, enough to materially change power if every listed item can be bought without limit. | Review market availability and actual transactions with the GM. This proposal does not assume mandatory gold sinks, forbid trade, or rely on attunement as a universal item cap. |
-| Party size or unequal sharing | Hoards do not scale automatically; two players receive twice the four-player share, six players receive two-thirds. | Keep party-wide output fixed as approved; communicate the calibration assumption. Any party-size adjustment is a separate owner decision. |
-| Magic droughts or too few lasting upgrades | Eight early hoards still have a `0.60⁸ ≈ 1.68%` chance of no magic at all. The full-campaign illustration averages only 3.29 permanent items per character before trade/crafting. | Review both scarcity and excess in play. Do not add an undisclosed pity timer; changing guarantees or cadence requires rebalancing. The SRD starting-at-higher-levels table is not a cumulative target this design has proven it meets. |
+| Party size or unequal sharing | Hoards are independent of party size; two players receive twice the four-player share, six players receive two-thirds. | Keep party-wide output fixed as approved. Four-way division is an illustration only, not automatic scaling or a mandatory division rule. |
+| Magic droughts or too few lasting upgrades | Eight early hoards still have a `0.60⁸ ≈ 1.68%` chance of no magic at all under either Common scenario. The campaign illustration averages 3.291 permanent items per character in the comparison baseline or conditionally 3.930 with Common 40:60. | Monitor scarcity and excess in play. Do not add an undisclosed pity timer; approved appearance rates remain fixed. The SRD starting-at-higher-levels table is not a cumulative target this design has proven it meets. |
 | Misclassifying rewards | Scroll exceptions, ammunition bundles, equipment surcharges, matched pairs, and rechargeable items can distort nominal estimates. | Approve entries/variants and reward-unit definitions explicitly. Keep excluded categories excluded until their economics are reviewed. |
 
-## Assumptions and decisions still requiring review
+## Remaining review and implementation details
 
-1. Approve or revise the proposed currency coefficients and percentile ranges;
-   approved CR bands and the currency-only/party-hoard distinction stay fixed.
-2. Confirm that two hoards and eight eligible purses per level-sized interval are
-   a useful calibration target. Specify how a GM chooses hoard CR for mixed threats
-   or a cache without guardians. No encounter-to-treasure formula is approved.
-3. Approve the one-item cap, appearance chances, rarity weights, and Common-only
-   consumables / other-rarity 40:60 mix. Review both high-tier item access and
-   potentially slow early permanent-item acquisition.
-4. Review the proposed extra exclusions and curate each eligible item/variant pool.
-   Uniform within-pool selection, duplicate handling, and nominal monetary estimates
-   remain conditional on that review. Check equipment surcharges and item-specific
-   exceptions before claiming an exact item-value expectation.
-5. Confirm expected market access, non-treasure income, party sizes, and desired
-   reward cadence in target campaigns. No mandatory spending, automatic party-size
-   scaling, market restriction, or deterministic item guarantee is selected here.
-6. Decide the license for the original distributions and preserve SRD attribution
-   and separation of provenance when any implementation is later approved.
+**Already approved; not open questions in this revision:** the four CR bands,
+currency distributions/coefficients/expectations, appearance/rarity weights,
+one-item cap, Uncommon–Very Rare 40:60 split, exclusions, duplicates across separate
+generations without prevention, party-size-independent hoards, cadence as a
+calibration assumption only, and the original/SRD licensing distinctions.
 
-The proposal has not been playtested. A later validation phase should exercise
+1. **Resolve the Common source constraint.** No verified Common permanent candidate
+   can be provided from SRD 5.2.1. Review the recommended Common-consumable exception,
+   or supply a verifiable eligible entry in this same licensed source before
+   adopting Common 40:60. The conditional scenario is not approval to expand the
+   content license, create an original magic item, or choose an automatic fallback.
+2. Review final item/variant pool membership and provenance, identifiers, treatment
+   classification, attunement conditions, and reward-unit definitions. Common
+   permanent is the only treatment bucket lacking a verified example; the others
+   are viable but the example table is not a complete approved catalog.
+3. Settle within-pool selection details (the existing recommendation is uniform)
+   and hoard CR assignment for mixed threats or unguarded caches. Define eligibility
+   and duplicate-payout handling for a physical cache separately from the approved
+   allowance for duplicate magic items across generations.
+4. Apply equipment surcharges and entry-specific exceptions to the approved catalog
+   before claiming an exact magic-value expectation. Assess actual market access,
+   non-treasure income, expenses, and observed cadence as playtest inputs, not as
+   mandatory gameplay rules or new party-size scaling.
+5. Decide the license for original project distributions and carry the existing
+   SRD attribution and change notices into a later implementation. This revision
+   preserves the audit's content boundaries and makes no licensing expansion.
+
+The design has not been playtested. A later validation phase should exercise
 multiple CR mixes and twice/half the assumed cadence, track actual purchasing
 power and powerful permanent items, and compare observed outcomes with these
-expectations. Implementation and further product decisions wait for owner review.
+expectations. Approved core decisions stay fixed; implementation of the unresolved
+Common treatment and remaining selection details waits for owner review.
 
 ## Calculation and scope validation
 
@@ -351,11 +476,18 @@ expectations. Implementation and further product decisions wait for owner review
   conditional rarity probabilities were multiplied to obtain unconditional rates.
   Party budgets, conditional purse means, item counts, and repeated-hoard chances
   were calculated separately.
+- Recalculated both Common-consumable and conditional Common 40:60 nominal values,
+  permanent/consumable counts, interval/cumulative budgets, and affected risks.
+  Currency distributions, their expectations/percentiles, appearance/rarity tables,
+  and Uncommon–Very Rare treatment rates are unchanged from the prior PR revision.
+- Checked every rarity/treatment bucket against named SRD examples; explicitly
+  flagged Common permanent as unverified. Whole-word Common occurrences in the full
+  item catalog and variant tables were inspected against the audit's PDF/hash.
 - SRD currency ratios, price anchors, rarity values, and relevant section references
   were checked against the audited official PDF. No non-SRD DMG distributions or
   item text were consulted as design inputs.
-- Only `docs/treasure-economy-design.md` is added. No executable datasets, generator
-  logic, UI, dependencies, dice engine, or existing audit document change. Runtime
+- Only `docs/treasure-economy-design.md` is modified in this revision. No executable
+  datasets, generator logic, UI, dependencies, dice engine, or existing audit document change. Runtime
   tests are not applicable to this design-only document.
 
 ## SRD attribution and sources
@@ -364,8 +496,9 @@ expectations. Implementation and further product decisions wait for owner review
 
 SRD facts are summarized and reorganized here. All reward quantities, probability
 distributions, CR scaling, eligibility policies, and balance assessments are original
-DM Companion proposals, not Wizards-authored rules. Retain the notices and change
-indications described in the [audit](srd-content-audit.md) and [CC BY 4.0][legal].
+DM Companion designs or explicitly marked proposals, not Wizards-authored rules.
+Retain the notices and change indications described in the
+[audit](srd-content-audit.md) and [CC BY 4.0][legal].
 The SRD notice refers to the warranty disclaimer and liability limitation in CC
 section 5; attribution does not imply endorsement or grant trademark rights.
 
@@ -378,3 +511,8 @@ section 5; attribution does not imply endorsement or grant trademark rights.
 [srd102]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=102
 [srd205]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=205
 [srd209]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=209
+[srd212]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=212
+[srd213]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=213
+[srd235]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=235
+[srd236]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=236
+[srd244]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=244
