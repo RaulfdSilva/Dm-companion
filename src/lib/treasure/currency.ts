@@ -86,7 +86,7 @@ export function validateCurrencyTables(tables: readonly CurrencyTable[]): void {
         fail(`invalid or implicit empty reward at ${row.id}`);
       }
       if (row.reward.kind === 'currency') {
-        const { denomination, dice, multiplier } = row.reward.amount ?? {};
+        const { denomination, dice, multiplier } = row.reward.amount;
         if (!denominations.includes(denomination)) fail(`invalid denomination at ${row.id}`);
         if (!Number.isSafeInteger(multiplier) || multiplier <= 0) fail(`invalid multiplier at ${row.id}`);
         try {
