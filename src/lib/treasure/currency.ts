@@ -86,9 +86,24 @@ export function validateCurrencyTables(tables: readonly CurrencyTable[]): void {
         fail(`invalid or implicit empty reward at ${row.id}`);
       }
       if (row.reward.kind === 'currency') {
-        const { denomination, dice, multiplier } = row.reward.amount;
-        if (!denominations.includes(denomination)) fail(`invalid denomination at ${row.id}`);
-        if (!Number.isSafeInteger(multiplier) || multiplier <= 0) fail(`invalid multiplier at ${row.id}`);
+        const amount: unknown = row.reward.amount;
+        if (amount === null || typeof amount !== 'object' || Array.isArray(amount)) {
+          fail(`missing or malformed currency amount at ${row.id} in ${table.id}`);
+        }
+        const fields = amount as Record<string, unknown>;
+        for (const field of ['denomination', 'dice', 'multiplier'] as const) {
+          if (!Object.prototype.hasOwnProperty.call(fields, field) || fields[field] === undefined || fields[field] === null) {
+            fail(`missing currency ${field} at ${row.id} in ${table.id}`);
+          }
+        }
+        const { denomination, dice, multiplier } = fields;
+        if (typeof denomination !== 'string' || !denominations.includes(denomination)) {
+          fail(`invalid currency denomination at ${row.id} in ${table.id}`);
+        }
+        if (typeof multiplier !== 'number' || !Number.isSafeInteger(multiplier) || multiplier <= 0) {
+          fail(`invalid currency multiplier at ${row.id} in ${table.id}`);
+        }
+        if (typeof dice !== 'string') fail(`invalid currency dice at ${row.id} in ${table.id}`);
         try {
           const parsed = parseDiceExpression(dice);
           const low = parsed.count + parsed.modifier;
