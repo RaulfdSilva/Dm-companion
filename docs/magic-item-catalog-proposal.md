@@ -16,8 +16,9 @@ rarity/treatment pool; final pool membership still requires owner approval.
 Research uses only the official English [SRD 5.2.1 PDF][srd], reached from the
 [official SRD download page][landing]. Page references are printed/PDF page numbers,
 not commercial-book page numbers. Candidate entries are in Magic Items A–Z,
-pp. 209–253; the exact entry heading is the item name in each row. Healing variants
-are individually identified by the table under Potions of Healing on p. 236.
+pp. 209–253. Names match entry headings, except individually identified healing
+variants in the Potions of Healing table on p. 236 and bonus variants under the
+shared Armor, +1, +2, or +3 and Weapon, +1, +2, or +3 headings on pp. 210 and 253.
 
 Audited PDF SHA-256:
 `8974902d109d6e63672d7c490bde9ccf052410503d9cfa768237154fbc5e3d87`.
@@ -34,6 +35,13 @@ entry, or an item appearing only in a commercial book is not a licensing basis.
   separate generations. No duplicate prevention, pity timer, or extra item roll.
 - Select uniformly inside the rolled rarity/treatment pool. Catalog size must not
   change the approved appearance, rarity, or treatment probabilities.
+- Include the SRD's +1/+2/+3 weapon and armor variants as separate named entries,
+  without multiplying their weight by base-equipment types. **Armor, +3 is
+  Legendary**, so its entry is reference-only and disabled under the existing
+  exclusion; the other five variants join the eligible pools below.
+- Remove Horseshoes of a Zephyr. The proposed replacement is **Rod of Alertness**,
+  a verified Very Rare permanent item; approval of this specific replacement
+  remains part of catalog review.
 
 ## Eligibility and classification policy
 
@@ -68,9 +76,9 @@ entry, or an item appearing only in a commercial book is not a licensing basis.
    class/spellcaster requirement exactly as printed. An unusable result is not an
    automatic reroll or a stronger item. Party-aware filtering is not proposed here.
 7. **One candidate is one complete named reward unit.** A potion/vial/packet/bead
-   is one item. Paired boots/bracers are their complete named item. The proposed
-   horseshoe row is the SRD's complete set of four, not four independent draws;
-   its inclusion and reward-unit representation need owner confirmation.
+   is one item. Paired boots/bracers are their complete named item. Each weapon or
+   armor bonus variant represents one weapon or one suit of armor; its base type
+   is a later designation, not another weighted catalog entry or magic-item roll.
 
 These labels describe item use, not economic value or power. Rechargeable healing
 equipment remains permanent; a consumable can still have a large lasting impact.
@@ -79,16 +87,18 @@ Source rules and restrictions always take precedence over these short summaries.
 ## Proposed pool counts
 
 These are counts of **proposed candidate variants**, not the total eligible SRD
-catalog. There are 40 candidates: 18 consumable and 22 permanent, drawn through
-the approved staged probabilities rather than one flat 40-item lottery.
+catalog. There are **45 eligible candidates: 18 consumable and 27 permanent**,
+drawn through the approved staged probabilities rather than one flat lottery.
+One additional registered variant, Armor, +3, is reference-only: **46 entries
+documented, 45 eligible for v0.1**. It contributes no weight or expected rewards.
 
 | Rarity | Consumable candidates | Permanent candidates | Total | Per-candidate chance once that pool is selected |
 | --- | ---: | ---: | ---: | --- |
 | Common | 3 | 0 — disabled | 3 | Consumable: 1/3 |
-| Uncommon | 5 | 8 | 13 | Consumable: 1/5; permanent: 1/8 |
-| Rare | 6 | 8 | 14 | Consumable: 1/6; permanent: 1/8 |
-| Very Rare | 4 | 6 | 10 | Consumable: 1/4; permanent: 1/6 |
-| Total | 18 | 22 | 40 | No cross-pool weighting is inferred from these counts. |
+| Uncommon | 5 | 9 | 14 | Consumable: 1/5; permanent: 1/9 |
+| Rare | 6 | 10 | 16 | Consumable: 1/6; permanent: 1/10 |
+| Very Rare | 4 | 8 | 12 | Consumable: 1/4; permanent: 1/8 |
+| Total eligible | 18 | 27 | 45 | No cross-pool weighting is inferred from these counts. |
 
 All seven enabled pools have verified candidates. Common's three-item pool is
 source-limited: the other verified Common entry is the excluded Spell Scroll.
@@ -121,7 +131,7 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Potion of Healing (greater) | None | [p. 236][p236], Potions of Healing table | Exact Uncommon healing variant, not a renamed basic potion. |
 | Potion of Water Breathing | None | [p. 236][p236] | Breathing underwater does not itself grant a Swim Speed. |
 
-### Uncommon — permanent (8)
+### Uncommon — permanent (9)
 
 | Official item name | Attunement | SRD reference | Restrictions or eligibility concern |
 | --- | --- | --- | --- |
@@ -133,6 +143,7 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Immovable Rod | None | [p. 227][p227] | Weight and movement limits matter; does not grant unlimited structural support. |
 | Lantern of Revealing | None | [p. 228][p228] | Needs ordinary oil and illumination. Fuel is not a second magic item or an unlimited free supply. |
 | Wand of Web | Yes — a Spellcaster | [p. 251][p251] | Replenishing charges make it permanent. Retain its last-charge destruction risk and casting requirements. |
+| Weapon, +1 | None | [p. 253][p253], Weapon, +1, +2, or +3 | Uncommon +1 variant; one Simple or Martial weapon. Base-type designation follows the equipment policy below; no separate row/weight for each weapon type. |
 
 ### Rare — consumable (6)
 
@@ -145,11 +156,12 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Potion of Invisibility | None | [p. 236][p236] | **Rare**, not Very Rare. Effect can end early on the specified actions. |
 | Potion of Invulnerability | None | [p. 236][p236] | Strong but short-lived damage protection; retain its duration rather than treating it as enduring resistance. |
 
-### Rare — permanent (8)
+### Rare — permanent (10)
 
 | Official item name | Attunement | SRD reference | Restrictions or eligibility concern |
 | --- | --- | --- | --- |
 | Amulet of Health | Yes | [p. 209][p209] | Sets Constitution to its specified value; existing high Constitution can make it unhelpful. |
+| Armor, +1 | None | [p. 210][p210], Armor, +1, +2, or +3 | Rare +1 variant; one suit of Light, Medium, or Heavy armor, not a Shield. Base-type designation does not multiply catalog weight. |
 | Boots of Speed | Yes | [p. 214][p214] | Complete pair. Limited activity time restores after a Long Rest; not disposable boots. |
 | Bracers of Defense | Yes | [p. 214][p214] | Complete pair. Benefit requires no armor and no Shield; preserve both restrictions. |
 | Cape of the Mountebank | None | [p. 215][p215] | Limited Dimension Door use returns at dawn; local teleportation is not unrestricted planar travel. |
@@ -157,6 +169,7 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Ring of Protection | Yes | [p. 238][p238] | Persistent defense can combine with other permitted equipment; rarity alone does not cap total party power. |
 | Rope of Entanglement | None | [p. 242][p242] | Use the entry's targeting, save, and release conditions; do not import older repair/durability rules. |
 | Staff of Healing | Yes — a Bard, Cleric, or Druid | [p. 245][p245] | Exact class prerequisite. Regains charges; retain its last-charge loss risk and spell table. |
+| Weapon, +2 | None | [p. 253][p253], Weapon, +1, +2, or +3 | Rare +2 variant; one Simple or Martial weapon. Use its printed attack/damage bonus and the base-type policy below. |
 
 ### Very Rare — consumable (4)
 
@@ -167,16 +180,62 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Potion of Speed | None | [p. 236][p236] | Preserve the specified Haste benefit and its exception to the usual ending drawback. |
 | Potion of Vitality | None | [p. 236][p236] | Removes its listed conditions and affects later Hit Point Dice use; not unlimited immediate healing. |
 
-### Very Rare — permanent (6)
+### Very Rare — permanent (8)
 
 | Official item name | Attunement | SRD reference | Restrictions or eligibility concern |
 | --- | --- | --- | --- |
+| Armor, +2 | None | [p. 210][p210], Armor, +1, +2, or +3 | Very Rare +2 variant; one suit of Light, Medium, or Heavy armor, not a Shield. Preserve normal equipment requirements. |
 | Cloak of Arachnida | Yes | [p. 215][p215] | Combines climbing, web-related benefits, and limited casting; preserve all restrictions and recharge. |
-| Horseshoes of a Zephyr | None | [p. 226][p226] | Proposed reward unit is the complete set of four. Requires a horse or similar hooved creature and all four shoes; owner must confirm this catalog representation. |
 | Ring of Regeneration | Yes | [p. 238][p238] | Slow recovery and regrowth require the entry's HP conditions; does not revive a dead wearer. |
 | Ring of Telekinesis | Yes | [p. 239][p239] | Casts Telekinesis. Do not omit relevant spell limitations such as Concentration when applicable. |
 | Robe of Scintillating Colors | Yes | [p. 240][p240] | Recharging charges, visibility conditions, and the robe's control effects require the full entry. |
+| Rod of Alertness | Yes | [p. 241][p241] | Proposed replacement for the removed horseshoes. Detection spells, Perception/Initiative benefits, and a protective aura give broader utility without a class or mount requirement. The aura needs planting and recharges at dawn; preserve its range, duration, and other source conditions. |
 | Staff of Frost | Yes — a Druid, Sorcerer, Warlock, or Wizard | [p. 245][p245] | Exact class prerequisite. Recharges; preserve spell costs and last-charge destruction risk. |
+| Weapon, +3 | None | [p. 253][p253], Weapon, +1, +2, or +3 | Very Rare +3 variant; one Simple or Martial weapon. Not Legendary; keep the official rarity and base-type policy. |
+
+### Reference-only variant — excluded from generation
+
+| Official variant name | Rarity / treatment | Attunement | SRD reference | v0.1 disposition |
+| --- | --- | --- | --- | --- |
+| Armor, +3 | Legendary / permanent | None | [p. 210][p210], Armor, +1, +2, or +3 | Registered to document all three official armor bonus variants, but disabled: Legendary appearance remains 0%. Not part of any eligible count, uniform draw, or expected reward. |
+
+This source fact prevents enabling all six variants under the approved v0.1
+rarities. Do not relabel Armor, +3 as Very Rare, substitute it for Weapon, +3,
+reroll into it, or create a Legendary pool. Its reference entry is not a request
+to reopen the approved exclusion.
+
+## Equipment variants and base-type designation
+
+**Verified source rules:** the shared weapon entry permits any Simple or Martial
+weapon; the armor entry permits any Light, Medium, or Heavy armor. Neither heading
+requires attunement. The Magic Item Categories rules allow the GM to choose an
+unspecified base type or determine it randomly (Armor, [p. 204][p204]; Weapons,
+[p. 205][p205]). The SRD does not supply a subtype probability table for these
+entries. Their official bonus variants are summarized as follows; the eligible
+rows above and the disabled reference row are their sole catalog entries.
+
+| Bonus variant | Weapon rarity | Armor rarity | Eligible v0.1 entries |
+| --- | --- | --- | ---: |
+| +1 | Uncommon | Rare | 2 |
+| +2 | Rare | Very Rare | 2 |
+| +3 | Very Rare | Legendary — disabled | 1 |
+
+**Proposed designation method:** after the uniform catalog draw, the GM explicitly
+chooses an existing base type from the SRD Weapons table ([p. 91][p91]) or the
+Light/Medium/Heavy rows of the Armor table ([p. 92][p92]), constrained by the selected
+entry's heading. Until that choice is made, record only the selected official
+bonus variant and mark the base type as unspecified; do not invent a default,
+new equipment type, or automatic secondary roll. This is equipment designation,
+not a promise that the result fits a particular character.
+
+Each eligible bonus variant gets exactly one `1/N` share of its rarity/permanent
+pool. Do not enumerate Longsword, +1, Longbow, +1, and every other possible base
+as additional lottery entries. The chosen base supplies its official properties,
+training requirements, and cost; it does not change the magic variant's rarity,
+treatment, weight, or number of rewards. A Shield is outside this armor entry's
+permitted categories, and ammunition is excluded; neither is a base-type option.
+No extra ammunition, equipment, or magic reward is bundled. Implementation of the
+GM's designation interaction remains separate from this documentation proposal.
 
 ## Uniform selection and economic consistency
 
@@ -190,8 +249,10 @@ For an item in a pool of size `N`, its per-hoard probability is
 `P(appearance) × P(rarity | appearance) × P(treatment | rarity) / N`.
 At CR 0–4, this proposal gives each Common item an 8% per-hoard chance
 (`0.40×0.60×1/3`), each Uncommon consumable 1.28%
-(`0.40×0.40×0.40/5`), and each Uncommon permanent item 1.20%
-(`0.40×0.40×0.60/8`). The probabilities sum back to the approved pool/rarity rates.
+(`0.40×0.40×0.40/5`), and each Uncommon permanent item approximately 1.0667%
+(`0.40×0.40×0.60/9`). Summing the nine exact permanent probabilities gives 9.6%
+per hoard; summing all these enabled pools gives the unchanged 40% appearance
+chance. Use the exact formula, not rounded display percentages, in later code.
 
 Duplicate item names do not create extra rows or extra weight. Printed healing
 variants are distinct candidates in different pools; descriptive variations,
@@ -204,16 +265,24 @@ The economy's nominal rarity/treatment base-value expectations remain applicable
 pool membership is not permission to change prices or approved currency formulas.
 Actual record-level valuation still needs source exceptions, any underlying-item
 costs (including staff/base-equipment questions), and the final approved reward
-units. Do not present nominal item value as extra currency or guaranteed sale income.
+units. In particular, SRD [pp. 205–206][p205] adds underlying equipment cost to a
+magic item's value; the approved economy explicitly excludes that cost from its
+nominal base-value model. Without a base-type distribution, no new numeric mean
+for weapon/armor base costs is implied. Keep those actual-cost details separate
+from the unchanged nominal expectations and currency calculations. Do not present
+nominal item value as extra currency or guaranteed sale income.
 
 ## Explicit disposition of items not proposed
 
 This is a curated list, not a claim to enumerate every eligible SRD item. **Every
-otherwise eligible SRD entry omitted from the 40 rows is deferred for this initial
-bounded-size/coverage proposal unless a more specific reason below applies.** This
+otherwise eligible SRD entry omitted from the 45 eligible rows is deferred for
+this initial bounded-size/coverage proposal unless a more specific reason below applies.** This
 is an explicit curation recommendation, not a conclusion that the omitted content
-is unlicensed or a final exclusion from the product. Forty is the proposed list
-size, not a newly approved hard application limit.
+is unlicensed or a final exclusion from the product. Forty-five is the proposed
+eligible list size, not a newly approved hard application limit. Armor, +3 is
+instead excluded by the approved Legendary policy, not a curation deferral.
+Horseshoes of a Zephyr ([p. 226][p226]) is removed by the owner's instruction;
+Rod of Alertness is proposed in its place without changing aggregate probabilities.
 
 The following notable deferrals make the additional recommendations visible.
 They require owner approval and are not added to the already approved exclusions.
@@ -230,7 +299,7 @@ updated pool counts; the economic appearance/rarity/treatment probabilities stay
 | Potion of Poison; Potion of Longevity | Uncommon / Very Rare, [p. 236][p236]; consumables. | Deceptive harm and cumulative aging risk are not automatically the approved cursed-item exclusion. Recommend deferral of these trap/aging rewards for v0.1, as an additional product choice. |
 | Ability-increasing manuals and tomes | Very Rare; e.g. Manual of Bodily Health, [p. 229][p229], and Tome of Clear Thought, [p. 249][p249]. Retained books recharge after a century. | **Review-sensitive:** literal rechargeable-item policy places them in permanent, but their practically single-use permanent ability increase can be mistaken for a consumable. Do not silently reclassify them. Recommend deferral pending explicit treatment/valuation and power review. |
 | Amulet of the Planes; Helm of Teleportation | Very Rare / Rare, [pp. 209][p209] and [226][p226]; permanent. | Planar or long-distance transport changes campaign access more than the selected local-teleportation cape. Recommend separate campaign-impact review; this is not a blanket exclusion of mobility magic. |
-| Equipment-backed and subtype families | Armor, +1, +2, or +3, [p. 210][p210]; Weapon, +1, +2, or +3, [p. 253][p253]; Potion of Resistance, [p. 236][p236]; Elemental Gem, [p. 220][p220]. Rarity/treatment must be verified per actual variant. | Need explicit base type/subtype and row-granularity decisions rather than a hidden extra random table. For example, +1 Armor is Rare while a +1 Weapon is Uncommon. Elemental Gem is a magic item, not automatically an ordinary-gem reward; its subtype/summoning state is the issue here. |
+| Other subtype families | Potion of Resistance, [p. 236][p236]; Elemental Gem, [p. 220][p220]. Rarity/treatment must be verified per actual variant. | Need explicit subtype and row-granularity decisions rather than a hidden extra random table. Elemental Gem is a magic item, not automatically an ordinary-gem reward; its subtype/summoning state is the issue here. Weapon/armor bonus variants are no longer deferred: their dedicated section specifies one row per bonus and GM base-type designation. |
 | Boots of Striding and Springing; Pearl of Power; Ring of Swimming | Uncommon permanent, [pp. 214][p214], [234][p234], [239][p239]. | Eligible alternatives deferred for the initial list-size/coverage choice, not a source or rarity problem. They can replace or supplement a reviewed pool after owner approval. |
 | Cloak of Displacement; Wand of Fireballs | Rare permanent, [pp. 215][p215] and [250][p250]. | Eligible alternatives deferred to keep the first defense/casting set small and avoid adding another offensive burst option without review. |
 
@@ -248,7 +317,7 @@ with a different name, rarity, edition, or weaker rules text.
   and a Web wand can substantially affect play. Source eligibility and rarity are
   not proof that every result is appropriate to a particular encounter or party.
 - **Restrictions must remain visible:** class-limited staffs, spellcaster
-  attunement, armor/Shield restrictions, mount-only equipment, and overlapping
+  attunement, armor/Shield restrictions, base-equipment requirements, and overlapping
   Darkvision can produce less useful rewards. Do not solve this with unapproved
   rerolls, party filters, extra items, or altered attunement conditions.
 - **Attunement is not a complete power cap:** some selected items need none.
@@ -260,27 +329,48 @@ with a different name, rarity, edition, or weaker rules text.
 - **Recharge and persistent recovery:** Staff of Healing, Ring of Regeneration,
   and other replenishable items can reduce resource pressure. Preserve last-charge
   risks where printed; do not replace them with invented generic durability rules.
-- **Representation-sensitive row:** the complete Horseshoes of a Zephyr set is
-  counted as one proposed named reward. If the owner defers it, Very Rare permanent
-  falls from six to five candidates and remains viable; revise uniform odds/counts
-  explicitly instead of generating incomplete unusable sets.
+- **Equipment power and representation:** adding five eligible bonus variants
+  expands permanent pools to 9/10/8 without changing their aggregate probabilities.
+  Repeated weapon/armor bonuses can accumulate across independent generations;
+  preserve source stacking/equipment rules. Base-type choice affects usefulness
+  and actual valuation, so expose it rather than inventing extra weights or costs.
+  Armor, +3 remains outside every draw despite its reference entry.
+- **Replacement utility:** Rod of Alertness avoids the removed horseshoes' mount
+  dependency but adds reusable detection and a daily defensive aura. These can
+  bypass concealment and aid several allies; broad usefulness is not a guarantee
+  of equal power. Preserve spell rules and the aura's actual activation/coverage.
 - **No empty required pool:** the proposal supports all seven enabled pools. No
   uncertain classification is used to fill one. Common permanent remains disabled,
   not a missing pool or a reason to reopen the approved Common policy.
 
-## Decisions requiring owner approval
+## Approved revision and remaining review
 
-1. Approve or revise the 40 candidate variants and the explicit size/coverage
-   deferrals. Eligibility verification does not make these the final product list.
+**Settled by the owner's revision request:** include official weapon/armor bonus
+variants with one entry per bonus, without equipment-type weight multiplication;
+remove Horseshoes of a Zephyr. Existing economy decisions remain settled.
+Armor, +3's Legendary rarity is a source fact, so the existing exclusion keeps it
+reference-only; enabling it is outside this revision's scope.
+
+**Still pending:**
+
+1. Approve Rod of Alertness as the specific replacement and review final membership
+   of the 45-eligible-entry proposal and explicit size/coverage deferrals. The five
+   newly eligible weapon/armor variants implement the requested inclusion, not an
+   unresolved proposal to defer those families again. Source verification does not
+   approve the whole catalog for implementation.
 2. Approve, reject, or narrow the additional deferrals for finite multi-use units,
    lasting equipment upgrades, harmful/aging rewards, century-recharging books,
    global/planar travel, and unresolved subtype families. Classification-sensitive
    and state-sensitive cases must be resolved before any such entry is counted.
-3. Confirm whole named pairs/sets as reward units, especially the four horseshoes;
-   define any required initial state from the actual SRD entry, without additional
-   invented contents, doses, equipment, or magic-item rewards.
-4. Complete final catalog validation: exact names/variants, source and license
-   metadata, conditions, valuation exceptions/base costs, and any spells or creature
+3. Review the GM-choice base-type method and define how a future implementation
+   records an unspecified versus chosen SRD base type. No automatic subtype table,
+   default type, or party-aware filter is approved here. Confirm other complete
+   named pairs and required initial states from the source, without invented
+   contents, doses, equipment, or additional magic-item rewards. The removed
+   horseshoe set no longer requires a reward-unit decision.
+4. Complete final catalog validation as a separate implementation prerequisite:
+   exact names/variants, source and license metadata, conditions, valuation
+   exceptions/base costs, and any spells or creature
    references needed to present the full item faithfully. These notes do not replace
    the underlying rules or expand SRD coverage.
 
@@ -295,16 +385,22 @@ catalog review. No final decision is made here on the owner's behalf.
   policy, licensed content boundary, and separate catalog-validation prerequisite.
 - Checked all candidate names/headings, rarity variants, attunement text, source
   pages, and classification evidence in the official SRD. In particular, Potion
-  of Invisibility is Rare, and healing variants follow the p. 236 table.
+  of Invisibility is Rare, and healing variants follow the p. 236 table. Weapon
+  +1/+2/+3 are Uncommon/Rare/Very Rare (p. 253); Armor +1/+2/+3 are
+  Rare/Very Rare/Legendary (p. 210). Rod of Alertness is Very Rare and requires
+  attunement without a class/spellcaster prerequisite (p. 241); its selection as
+  replacement remains a review proposal.
 - Reviewed candidate restrictions and curse eligibility, charge/recharge rules,
   complete reward units, and the deferral cases above. No selected row depends on
   an uncertain classification; review-sensitive cases remain outside the counts.
 - Checked unique candidate counts, all seven nonempty required pools, uniform
   per-item probabilities, reference links, and the audit PDF hash. No Common
-  permanent item, duplicate row, or excluded rarity/category is counted.
-- Only `docs/magic-item-catalog-proposal.md` is added. No existing document, currency
-  table, Dice Engine, UI, application code, dependencies, or executable catalog is
-  changed. Runtime tests are not applicable to this research/design-only task.
+  permanent item, duplicate row, or excluded rarity/category is counted as eligible.
+- This revision modifies only `docs/magic-item-catalog-proposal.md` on the existing
+  PR branch. All other previously proposed candidate rows are unchanged. No other
+  document, currency table, Dice Engine, UI, application code, dependency, or
+  executable catalog is changed. Runtime tests are not applicable to this
+  research/design-only task.
 
 ## Attribution
 
@@ -320,7 +416,10 @@ section 5. Original project-content licensing remains a separate owner decision.
 [srd]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf
 [landing]: https://www.dndbeyond.com/srd
 [legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[p91]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=91
+[p92]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=92
 [p204]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=204
+[p205]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=205
 [p209]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=209
 [p210]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=210
 [p211]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=211
@@ -345,6 +444,7 @@ section 5. Original project-content licensing remains a separate owner decision.
 [p238]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=238
 [p239]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=239
 [p240]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=240
+[p241]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=241
 [p242]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=242
 [p245]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=245
 [p249]: https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf#page=249
