@@ -1,17 +1,21 @@
-# Magic-item catalog proposal — v0.1
+# Magic-item catalog — approved v0.1 specification
 
-**Status: candidate catalog for owner review, not an approved implementation dataset.**
-SRD names, rarities, and requirements below are verified source facts. Inclusion,
-curation deferrals, and reward-unit recommendations are proposals unless explicitly
-identified as already approved. No TypeScript catalog or generator is implemented.
+**Status: approved by the owner for v0.1 implementation.** The owner has approved
+the 45 eligible items, including Rod of Alertness, the documented curation
+deferrals, classification/reward-unit policy, and manual base-equipment designation
+rules. No blocking catalog or product-design decisions remain for v0.1.
+SRD names, rarities, and requirements below are verified source facts; catalog
+curation and selection policies are DM Companion decisions, not official treasure
+distributions. This document records approval only: no TypeScript catalog or
+generator is implemented.
 
 ## Sources and approved boundaries
 
 The [approved economy](treasure-economy-design.md) governs currency, magic appearance,
 rarity probabilities, treatment probabilities, the one-item cap, and duplicate
 behavior. The [content audit](srd-content-audit.md) governs the source/licensing
-boundary. This task additionally confirms uniform selection within each eligible
-rarity/treatment pool; final pool membership still requires owner approval.
+boundary. Uniform selection within each eligible rarity/treatment pool and the
+final pool membership below are approved by the owner.
 
 Research uses only the official English [SRD 5.2.1 PDF][srd], reached from the
 [official SRD download page][landing]. Page references are printed/PDF page numbers,
@@ -39,9 +43,14 @@ entry, or an item appearing only in a commercial book is not a licensing basis.
   without multiplying their weight by base-equipment types. **Armor, +3 is
   Legendary**, so its entry is reference-only and disabled under the existing
   exclusion; the other five variants join the eligible pools below.
-- Remove Horseshoes of a Zephyr. The proposed replacement is **Rod of Alertness**,
-  a verified Very Rare permanent item; approval of this specific replacement
-  remains part of catalog review.
+- Horseshoes of a Zephyr is removed. The approved replacement is **Rod of Alertness**,
+  a verified Very Rare permanent item.
+- Each official weapon/armor bonus variant has one catalog entry. The GM may
+  manually choose a valid SRD 5.2.1 base type later, or leave it unspecified.
+  No additional roll, automatic base-type assignment, or probability change is
+  permitted; Armor, +3 remains disabled because it is Legendary.
+- The 45 eligible items and all documented curation deferrals are approved for
+  v0.1. Deferred items are outside this version, not pending blockers for it.
 
 ## Eligibility and classification policy
 
@@ -57,7 +66,7 @@ entry, or an item appearing only in a commercial book is not a licensing basis.
    replenish that same item.** Drinking a potion, using up a bead, scattering a
    single-use dust packet, or applying a vial of oil qualifies. An empty mundane
    container, or an enduring benefit to its user, does not make the original item
-   permanent. All proposed consumable rows below are one-use reward units.
+   permanent. All approved consumable rows below are one-use reward units.
 4. **Permanent means the item retains an ongoing or reusable magical function.**
    Ordinary charges, daily/rest recharge, or replaceable mundane fuel do not make
    it consumable. A possible last-charge destruction roll is a risk, not a reason
@@ -69,7 +78,8 @@ entry, or an item appearing only in a commercial book is not a licensing basis.
    because it has several uses. Such entries are deferred here rather than silently
    reducing an official packet/deck to one use. Century-recharging books are
    permanent under the literal rechargeable-item rule, but their practically
-   single-use benefit warrants separate review; they are not counted below.
+   single-use benefit warrants review before any future inclusion; their v0.1
+   deferral is approved and they are not counted below.
 6. **Attunement is metadata, not a hidden draw filter.** “None” means the item's
    SRD heading imposes no attunement requirement; other operating conditions still
    apply. “Yes” alone imposes no class/spellcaster condition. Keep any explicit
@@ -84,15 +94,15 @@ These labels describe item use, not economic value or power. Rechargeable healin
 equipment remains permanent; a consumable can still have a large lasting impact.
 Source rules and restrictions always take precedence over these short summaries.
 
-## Proposed pool counts
+## Approved pool counts
 
-These are counts of **proposed candidate variants**, not the total eligible SRD
-catalog. There are **45 eligible candidates: 18 consumable and 27 permanent**,
+These are counts of **approved v0.1 variants**, not the entire eligible SRD
+catalog. There are **45 eligible items: 18 consumable and 27 permanent**,
 drawn through the approved staged probabilities rather than one flat lottery.
 One additional registered variant, Armor, +3, is reference-only: **46 entries
 documented, 45 eligible for v0.1**. It contributes no weight or expected rewards.
 
-| Rarity | Consumable candidates | Permanent candidates | Total | Per-candidate chance once that pool is selected |
+| Rarity | Consumable items | Permanent items | Total | Per-item chance once that pool is selected |
 | --- | ---: | ---: | ---: | --- |
 | Common | 3 | 0 — disabled | 3 | Consumable: 1/3 |
 | Uncommon | 5 | 9 | 14 | Consumable: 1/5; permanent: 1/9 |
@@ -102,12 +112,12 @@ documented, 45 eligible for v0.1**. It contributes no weight or expected rewards
 
 All seven enabled pools have verified candidates. Common's three-item pool is
 source-limited: the other verified Common entry is the excluded Spell Scroll.
-Very Rare consumables have only four proposed options, so repetition is more
+Very Rare consumables have only four approved options, so repetition is more
 noticeable. Neither pool is empty or prevents the approved probabilities. No
 minimum pool size beyond nonempty has been approved; additional variety must not
 come from invented entries or relaxed exclusions.
 
-## Candidate items by rarity and treatment
+## Approved items by rarity and treatment
 
 Every row inherits the rarity and treatment in its heading. Attunement and source
 are stated individually. Notes paraphrase restrictions and review concerns; they
@@ -189,7 +199,7 @@ are not replacement rules text. None of these selected entries specifies a curse
 | Ring of Regeneration | Yes | [p. 238][p238] | Slow recovery and regrowth require the entry's HP conditions; does not revive a dead wearer. |
 | Ring of Telekinesis | Yes | [p. 239][p239] | Casts Telekinesis. Do not omit relevant spell limitations such as Concentration when applicable. |
 | Robe of Scintillating Colors | Yes | [p. 240][p240] | Recharging charges, visibility conditions, and the robe's control effects require the full entry. |
-| Rod of Alertness | Yes | [p. 241][p241] | Proposed replacement for the removed horseshoes. Detection spells, Perception/Initiative benefits, and a protective aura give broader utility without a class or mount requirement. The aura needs planting and recharges at dawn; preserve its range, duration, and other source conditions. |
+| Rod of Alertness | Yes | [p. 241][p241] | Approved replacement for the removed horseshoes. Detection spells, Perception/Initiative benefits, and a protective aura give broader utility without a class or mount requirement. The aura needs planting and recharges at dawn; preserve its range, duration, and other source conditions. |
 | Staff of Frost | Yes — a Druid, Sorcerer, Warlock, or Wizard | [p. 245][p245] | Exact class prerequisite. Recharges; preserve spell costs and last-charge destruction risk. |
 | Weapon, +3 | None | [p. 253][p253], Weapon, +1, +2, or +3 | Very Rare +3 variant; one Simple or Martial weapon. Not Legendary; keep the official rarity and base-type policy. |
 
@@ -220,13 +230,15 @@ rows above and the disabled reference row are their sole catalog entries.
 | +2 | Rare | Very Rare | 2 |
 | +3 | Very Rare | Legendary — disabled | 1 |
 
-**Proposed designation method:** after the uniform catalog draw, the GM explicitly
-chooses an existing base type from the SRD Weapons table ([p. 91][p91]) or the
-Light/Medium/Heavy rows of the Armor table ([p. 92][p92]), constrained by the selected
-entry's heading. Until that choice is made, record only the selected official
-bonus variant and mark the base type as unspecified; do not invent a default,
-new equipment type, or automatic secondary roll. This is equipment designation,
-not a promise that the result fits a particular character.
+**Approved final designation rule:** after the uniform catalog draw, the GM may
+manually choose an existing base type from the SRD Weapons table ([p. 91][p91])
+or the Light/Medium/Heavy rows of the Armor table ([p. 92][p92]), constrained by
+the selected entry's heading. The result may remain with its base type unspecified;
+designation is optional at generation time and may happen later. Until the GM
+chooses, retain the selected official bonus variant with no base type assigned.
+Do not perform an additional roll, automatically assign a type or default,
+invent a new equipment type, or change any probability. This is equipment
+designation, not a promise that the result fits a particular character.
 
 Each eligible bonus variant gets exactly one `1/N` share of its rarity/permanent
 pool. Do not enumerate Longsword, +1, Longbow, +1, and every other possible base
@@ -235,7 +247,8 @@ training requirements, and cost; it does not change the magic variant's rarity,
 treatment, weight, or number of rewards. A Shield is outside this armor entry's
 permitted categories, and ammunition is excluded; neither is a base-type option.
 No extra ammunition, equipment, or magic reward is bundled. Implementation of the
-GM's designation interaction remains separate from this documentation proposal.
+GM's designation interaction is implementation work under the approved rule,
+not a pending product decision.
 
 ## Uniform selection and economic consistency
 
@@ -247,7 +260,7 @@ uniformly from the combined list; different pool sizes would replace the approve
 
 For an item in a pool of size `N`, its per-hoard probability is
 `P(appearance) × P(rarity | appearance) × P(treatment | rarity) / N`.
-At CR 0–4, this proposal gives each Common item an 8% per-hoard chance
+At CR 0–4, this catalog gives each Common item an 8% per-hoard chance
 (`0.40×0.60×1/3`), each Uncommon consumable 1.28%
 (`0.40×0.40×0.40/5`), and each Uncommon permanent item approximately 1.0667%
 (`0.40×0.40×0.60/9`). Summing the nine exact permanent probabilities gives 9.6%
@@ -264,7 +277,7 @@ empty. An empty approved pool blocks implementation until reviewed.
 The economy's nominal rarity/treatment base-value expectations remain applicable;
 pool membership is not permission to change prices or approved currency formulas.
 Actual record-level valuation still needs source exceptions, any underlying-item
-costs (including staff/base-equipment questions), and the final approved reward
+costs (including staff/base-equipment details), and the approved reward
 units. In particular, SRD [pp. 205–206][p205] adds underlying equipment cost to a
 magic item's value; the approved economy explicitly excludes that cost from its
 nominal base-value model. Without a base-type distribution, no new numeric mean
@@ -272,41 +285,45 @@ for weapon/armor base costs is implied. Keep those actual-cost details separate
 from the unchanged nominal expectations and currency calculations. Do not present
 nominal item value as extra currency or guaranteed sale income.
 
-## Explicit disposition of items not proposed
+## Approved disposition of items outside v0.1
 
 This is a curated list, not a claim to enumerate every eligible SRD item. **Every
 otherwise eligible SRD entry omitted from the 45 eligible rows is deferred for
-this initial bounded-size/coverage proposal unless a more specific reason below applies.** This
-is an explicit curation recommendation, not a conclusion that the omitted content
-is unlicensed or a final exclusion from the product. Forty-five is the proposed
-eligible list size, not a newly approved hard application limit. Armor, +3 is
-instead excluded by the approved Legendary policy, not a curation deferral.
+this approved initial bounded-size/coverage catalog unless a more specific reason
+below applies.** This is an approved v0.1 curation deferral, not a conclusion that
+the omitted content is unlicensed or permanently excluded from future versions.
+Forty-five is the approved v0.1 eligible list size, not a permanent application
+limit. Armor, +3 is excluded by the approved Legendary policy, not a curation
+deferral.
 Horseshoes of a Zephyr ([p. 226][p226]) is removed by the owner's instruction;
-Rod of Alertness is proposed in its place without changing aggregate probabilities.
+Rod of Alertness is approved in its place without changing aggregate probabilities.
 
-The following notable deferrals make the additional recommendations visible.
-They require owner approval and are not added to the already approved exclusions.
-Owner-approved replacements/additions must retain uniform selection and trigger
-updated pool counts; the economic appearance/rarity/treatment probabilities stay fixed.
+The owner has approved the following deferrals and their stated rationale for
+v0.1, as well as the default size/coverage deferral above. They are distinct from
+the already approved source/category exclusions. Questions in these rows concern
+possible future inclusion only; no answer is needed to implement the approved
+45-item catalog. Future replacements/additions require owner approval, uniform
+selection, and updated pool counts; economic appearance/rarity/treatment
+probabilities stay fixed.
 
-| Otherwise eligible SRD item/family | Source and classification finding | Proposed reason to defer from this first catalog |
+| Otherwise eligible SRD item/family | Source and classification finding | Approved rationale for v0.1 deferral |
 | --- | --- | --- |
 | Dust of Dryness; Deck of Illusions | Uncommon, [pp. 219][p219] and [217][p217]. Finite expendable pinches/cards make the container-level resource consumable, despite multiple uses. | Variable starting contents and the proper reward unit need a decision; do not silently award one pinch/card as though it were the complete official item. |
 | Bag of Beans; Necklace of Fireballs | Rare, [pp. 211][p211] and [233][p233]. Finite contents are consumable resources. | Random quantities and detachable contents complicate one-reward representation and valuation; the bag also has large secondary effects. |
 | Efreeti Bottle | Very Rare, [p. 220][p220]. Finite, outcome-dependent uses; a delay before reopening is not unlimited replenishment. Treat as a consumable resource if later admitted. | Random contents/effects, possible hostile outcome, and Wish access need explicit campaign and reward-unit review. |
 | Marvelous Pigments | Very Rare, [p. 230][p230]. Finite pigment pots are consumable. | Variable pot count, terrain/object creation, and bounded material-value rules require extra state/economy review. Its creation is not unlimited wealth; preserve the printed limits if later admitted. |
 | Oil of Sharpness | Very Rare Potion, [p. 233][p233]. The oil is consumable even though its benefit may endure. | This SRD entry turns eligible equipment into +3 equipment and states no duration. Do not import an older temporary-effect rule. It can affect ammunition, but the vial is not itself a magic-ammunition entry. Defer for lasting-upgrade and ammunition-interaction review rather than relabeling it permanent or altering its mechanics. |
-| Potion of Poison; Potion of Longevity | Uncommon / Very Rare, [p. 236][p236]; consumables. | Deceptive harm and cumulative aging risk are not automatically the approved cursed-item exclusion. Recommend deferral of these trap/aging rewards for v0.1, as an additional product choice. |
-| Ability-increasing manuals and tomes | Very Rare; e.g. Manual of Bodily Health, [p. 229][p229], and Tome of Clear Thought, [p. 249][p249]. Retained books recharge after a century. | **Review-sensitive:** literal rechargeable-item policy places them in permanent, but their practically single-use permanent ability increase can be mistaken for a consumable. Do not silently reclassify them. Recommend deferral pending explicit treatment/valuation and power review. |
-| Amulet of the Planes; Helm of Teleportation | Very Rare / Rare, [pp. 209][p209] and [226][p226]; permanent. | Planar or long-distance transport changes campaign access more than the selected local-teleportation cape. Recommend separate campaign-impact review; this is not a blanket exclusion of mobility magic. |
+| Potion of Poison; Potion of Longevity | Uncommon / Very Rare, [p. 236][p236]; consumables. | Deceptive harm and cumulative aging risk are not automatically the approved cursed-item exclusion. Deferral of these trap/aging rewards for v0.1 is approved as an additional product choice. |
+| Ability-increasing manuals and tomes | Very Rare; e.g. Manual of Bodily Health, [p. 229][p229], and Tome of Clear Thought, [p. 249][p249]. Retained books recharge after a century. | **Review-sensitive for future inclusion:** literal rechargeable-item policy places them in permanent, but their practically single-use permanent ability increase can be mistaken for a consumable. Do not silently reclassify them. Their deferral is approved; future inclusion needs explicit treatment/valuation and power review. |
+| Amulet of the Planes; Helm of Teleportation | Very Rare / Rare, [pp. 209][p209] and [226][p226]; permanent. | Planar or long-distance transport changes campaign access more than the selected local-teleportation cape. Deferral is approved; future inclusion needs separate campaign-impact review. This is not a blanket exclusion of mobility magic. |
 | Other subtype families | Potion of Resistance, [p. 236][p236]; Elemental Gem, [p. 220][p220]. Rarity/treatment must be verified per actual variant. | Need explicit subtype and row-granularity decisions rather than a hidden extra random table. Elemental Gem is a magic item, not automatically an ordinary-gem reward; its subtype/summoning state is the issue here. Weapon/armor bonus variants are no longer deferred: their dedicated section specifies one row per bonus and GM base-type designation. |
 | Boots of Striding and Springing; Pearl of Power; Ring of Swimming | Uncommon permanent, [pp. 214][p214], [234][p234], [239][p239]. | Eligible alternatives deferred for the initial list-size/coverage choice, not a source or rarity problem. They can replace or supplement a reviewed pool after owner approval. |
 | Cloak of Displacement; Wand of Fireballs | Rare permanent, [pp. 215][p215] and [250][p250]. | Eligible alternatives deferred to keep the first defense/casting set small and avoid adding another offensive burst option without review. |
 
-For other unlisted eligible entries, the default size/coverage deferral above is
-the stated reason, not an implicit ban. The owner may reject any proposed deferral
-or request additional candidates. No excluded item is being silently substituted
-with a different name, rarity, edition, or weaker rules text.
+For other unlisted eligible entries, the approved default size/coverage deferral
+above is the stated reason, not an implicit permanent ban. Future additions or
+changes to these deferrals require a new owner decision. No excluded item is being
+silently substituted with a different name, rarity, edition, or weaker rules text.
 
 ## Balance and pool-readiness concerns
 
@@ -339,45 +356,40 @@ with a different name, rarity, edition, or weaker rules text.
   dependency but adds reusable detection and a daily defensive aura. These can
   bypass concealment and aid several allies; broad usefulness is not a guarantee
   of equal power. Preserve spell rules and the aura's actual activation/coverage.
-- **No empty required pool:** the proposal supports all seven enabled pools. No
+- **No empty required pool:** the approved catalog supports all seven enabled pools. No
   uncertain classification is used to fill one. Common permanent remains disabled,
   not a missing pool or a reason to reopen the approved Common policy.
 
-## Approved revision and remaining review
+## Final owner approval and implementation readiness
 
-**Settled by the owner's revision request:** include official weapon/armor bonus
-variants with one entry per bonus, without equipment-type weight multiplication;
-remove Horseshoes of a Zephyr. Existing economy decisions remain settled.
-Armor, +3's Legendary rarity is a source fact, so the existing exclusion keeps it
-reference-only; enabling it is outside this revision's scope.
+**Approved:** the 45 eligible items (18 consumable, 27 permanent), Rod of Alertness
+as the replacement for Horseshoes of a Zephyr, all documented curation deferrals,
+and the classification/complete reward-unit policy. All seven enabled pools have
+approved members. No catalog membership, replacement, or deferral approval remains
+pending for v0.1.
 
-**Still pending:**
+**Final equipment decision:** one entry per official bonus variant; manual GM
+selection of a valid SRD 5.2.1 base type, optionally later; the result may remain
+unspecified. No extra roll, automatic type assignment, or probability adjustment.
+Armor, +3 stays reference-only and disabled because it is Legendary. No base-type
+decision by the GM is required to generate or retain an unspecified result.
 
-1. Approve Rod of Alertness as the specific replacement and review final membership
-   of the 45-eligible-entry proposal and explicit size/coverage deferrals. The five
-   newly eligible weapon/armor variants implement the requested inclusion, not an
-   unresolved proposal to defer those families again. Source verification does not
-   approve the whole catalog for implementation.
-2. Approve, reject, or narrow the additional deferrals for finite multi-use units,
-   lasting equipment upgrades, harmful/aging rewards, century-recharging books,
-   global/planar travel, and unresolved subtype families. Classification-sensitive
-   and state-sensitive cases must be resolved before any such entry is counted.
-3. Review the GM-choice base-type method and define how a future implementation
-   records an unspecified versus chosen SRD base type. No automatic subtype table,
-   default type, or party-aware filter is approved here. Confirm other complete
-   named pairs and required initial states from the source, without invented
-   contents, doses, equipment, or additional magic-item rewards. The removed
-   horseshoe set no longer requires a reward-unit decision.
-4. Complete final catalog validation as a separate implementation prerequisite:
-   exact names/variants, source and license metadata, conditions, valuation
-   exceptions/base costs, and any spells or creature
-   references needed to present the full item faithfully. These notes do not replace
-   the underlying rules or expand SRD coverage.
+**No blocking product/design decisions remain for v0.1 implementation.**
+Item catalog validation remains a separate technical implementation prerequisite:
+check the implemented dataset against these approved entries, exact names/variants,
+source and license metadata, conditions, reward units, valuation exceptions/base
+costs, and any spell or creature references needed to present an item faithfully.
+Also verify that unspecified base types are preserved, that only a manual choice
+sets them, and that disabled Armor, +3 cannot be drawn. These are implementation
+and verification tasks under settled decisions, not requests for renewed owner
+approval. Deferred-item state/classification questions apply only if future scope
+is proposed. These notes do not replace source rules or expand SRD coverage.
 
 Appearance/rarity/treatment probabilities, uniform within-pool selection, the
 one-item cap, approved exclusions, and duplicate allowance are **not** reopened.
-No TypeScript dataset or generator should be implemented from this proposal before
-catalog review. No final decision is made here on the owner's behalf.
+The approved catalog is ready to guide a separate implementation task. This
+documentation change records the owner's decisions and implements no dataset or
+generator.
 
 ## Validation and scope
 
@@ -389,15 +401,19 @@ catalog review. No final decision is made here on the owner's behalf.
   +1/+2/+3 are Uncommon/Rare/Very Rare (p. 253); Armor +1/+2/+3 are
   Rare/Very Rare/Legendary (p. 210). Rod of Alertness is Very Rare and requires
   attunement without a class/spellcaster prerequisite (p. 241); its selection as
-  replacement remains a review proposal.
+  replacement is approved by the owner.
 - Reviewed candidate restrictions and curse eligibility, charge/recharge rules,
   complete reward units, and the deferral cases above. No selected row depends on
   an uncertain classification; review-sensitive cases remain outside the counts.
 - Checked unique candidate counts, all seven nonempty required pools, uniform
   per-item probabilities, reference links, and the audit PDF hash. No Common
   permanent item, duplicate row, or excluded rarity/category is counted as eligible.
+- Recorded final approval, all deferrals, and optional/later manual designation;
+  retained all 45 eligible members, counts, probabilities, source references, and
+  the disabled Legendary reference. No blocking owner decision remains for v0.1.
 - This revision modifies only `docs/magic-item-catalog-proposal.md` on the existing
-  PR branch. All other previously proposed candidate rows are unchanged. No other
+  PR branch. Item names and metadata remain unchanged; only Rod of Alertness's
+  replacement approval status changes within the item tables. No other
   document, currency table, Dice Engine, UI, application code, dependency, or
   executable catalog is changed. Runtime tests are not applicable to this
   research/design-only task.
@@ -407,7 +423,7 @@ catalog review. No final decision is made here on the owner's behalf.
 > This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
 Source metadata and restrictions are summarized and reorganized. Curation,
-classification explanations, and proposed deferrals are project analysis, not
+classification explanations, and approved curation deferrals are project analysis, not
 Wizards-authored treasure distributions or endorsement. Preserve the notices,
 modification indications, and [CC BY 4.0][legal] rights described in the audit;
 the SRD notice refers to the warranty disclaimer and liability limitation in
