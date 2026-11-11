@@ -75,6 +75,27 @@ Non-string input throws `TypeError`.
 Tests use Node's built-in test runner with `tsx` to execute TypeScript. No React
 Native or Expo runtime is needed to use or test the engine.
 
+## Magic-item catalog
+
+`src/lib/treasure/magic-items.ts` exports the deeply frozen `MAGIC_ITEM_CATALOG`
+and readonly `MagicItem` types for the [45 approved v0.1 items](docs/magic-item-catalog-proposal.md).
+Each entry has a stable ID, official name/variant, rarity, treatment, category,
+attunement requirement, and an SRD page/entry reference. `MAGIC_ITEM_SOURCE`
+retains the source version, URL, PDF hash, CC BY 4.0 attribution, and change notice.
+
+`validateMagicItemCatalog(value: unknown)` throws a contextual error for malformed
+data, changed membership/metadata, excluded items, or incorrect pool counts. It
+validates the complete 45-entry catalog, not a single result or arbitrary subset,
+and never changes or freezes its input. Successful validation narrows the value
+to `readonly MagicItem[]`; the exported catalog itself is frozen at every level.
+
+The five weapon/armor bonus variants each occupy one entry with `mode: 'manual'`
+and `baseType: null`. A later result may preserve an unspecified base type
+(`null` or omitted), or carry a manually chosen SRD type from `WEAPON_BASE_TYPES`
+or `ARMOR_BASE_TYPES`. Designation does not change the ID or add entries, weights,
+or rolls. Armor, +3 is Legendary and excluded. No random selection, treasure
+generation, equipment-selection interface, or item mechanics are implemented.
+
 ## Project structure
 
 ```text
