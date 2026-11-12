@@ -3,9 +3,10 @@
 A mobile toolkit for Dungeon Masters running Dungeons & Dragons with the 2024 rules.
 
 The application uses Expo with React Native, strict TypeScript, and Expo Router,
-and includes a reusable TypeScript dice engine. The home screen displays **DM Companion** and
-**Treasure Generator — Coming Soon**. Treasure generation and other gameplay tools
-are planned for future work; no backend, authentication, or database is included.
+and includes reusable TypeScript dice and treasure generation engines. The home screen
+displays **DM Companion** and **Treasure Generator — Coming Soon**. A treasure
+generation interface and other gameplay tools are planned for future work; no
+backend, authentication, or database is included.
 
 ## Requirements
 
@@ -93,8 +94,62 @@ The five weapon/armor bonus variants each occupy one entry with `mode: 'manual'`
 and `baseType: null`. A later result may preserve an unspecified base type
 (`null` or omitted), or carry a manually chosen SRD type from `WEAPON_BASE_TYPES`
 or `ARMOR_BASE_TYPES`. Designation does not change the ID or add entries, weights,
-or rolls. Armor, +3 is Legendary and excluded. No random selection, treasure
-generation, equipment-selection interface, or item mechanics are implemented.
+or rolls. Armor, +3 is Legendary and excluded. The catalog module supplies data and
+validation; the API below handles generation. No equipment-selection interface or
+full item mechanics are implemented.
+
+## Treasure generation
+
+`generateTreasure(type, crBand, random?)` in `src/lib/treasure/generate.ts` generates
+one individual purse or one party-wide hoard using the
+[approved economy](docs/treasure-economy-design.md) and catalog:
+
+```ts
+import { generateTreasure } from './src/lib/treasure/generate';
+
+const empty = generateTreasure('individual', 'cr-0-4', () => 0);
+// empty.currency.kind === 'empty'; empty.magic === null
+
+const samples = [0, 0, 0, 0.99, 0.05, 0];
+let index = 0;
+const hoard = generateTreasure('hoard', 'cr-0-4', () => samples[index++]);
+// hoard.currency: 60 GP; rowId: 'hoard-cr-0-4-1'
+// hoard.magic.kind === 'item': Bead of Nourishment (common, consumable)
+```
+
+`type` is `'individual' | 'hoard'`; `crBand` is an existing `CrBandId`:
+`'cr-0-4'`, `'cr-5-10'`, `'cr-11-16'`, or `'cr-17-plus'`. The optional RNG has the
+Dice Engine's `RandomNumberGenerator` contract and defaults to `Math.random`.
+Identical RNG sequences and inputs reproduce the complete result. Uniform
+probabilities assume independent uniform samples; runtime checks enforce `[0, 1)`,
+not the statistical quality of an injected generator.
+
+The `TreasureResult` includes `type`, `crBand`, and `currency`. Currency contains
+the table/row IDs and a `selectionRoll`; its `kind` is `'empty'` or `'currency'`.
+The latter adds the original `denomination`, integer `quantity`, `multiplier`,
+and `amountRoll`. The whole amount-roll total, including its modifier, is multiplied
+once. Hoard amounts apply to the entire party and never scale with party size.
+
+Individuals have `magic: null`. Hoards have `magic.kind: 'none'` with an
+`appearanceRoll`, or `'item'` with the selected catalog `item`, `appearanceRoll`,
+`rarityRoll`, `treatmentRoll`, and `selectionRoll`. The item supplies its stable ID,
+name/variant, rarity, treatment, attunement, source, and equipment metadata.
+Equipment starts with `baseType: null`; generation never assigns it automatically.
+All roll traces use the existing `DiceRoll` shape (individual faces, modifier,
+sides/count, and total). The item-selection die's face is its one-based position
+in the matching pool, in catalog order.
+
+RNG consumption order is currency selector → amount dice → hoard appearance →
+rarity → non-Common treatment → uniform item selection. Empty individual currency
+skips amount dice; individuals skip magic entirely; appearance failure skips all
+later magic rolls; Common skips treatment (`treatmentRoll: null`). At most one
+magic item is returned, and separate generations can return duplicates.
+
+Invalid treasure types or non-callable RNGs throw `TypeError`; invalid CR bands or
+RNG samples throw `RangeError`. An invalid catalog, missing currency row/table, or
+empty eligible pool throws a descriptive error. Hoards validate the catalog before
+consuming RNG samples. No branch silently rerolls or substitutes another pool.
+There is no UI, persistence, pricing, denomination conversion, or party-size input.
 
 ## Project structure
 
