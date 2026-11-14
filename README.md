@@ -3,10 +3,10 @@
 A mobile toolkit for Dungeon Masters running Dungeons & Dragons with the 2024 rules.
 
 The application uses Expo with React Native, strict TypeScript, and Expo Router,
-and includes reusable TypeScript dice and treasure generation engines. The home screen
-displays **DM Companion** and **Treasure Generator — Coming Soon**. A treasure
-generation interface and other gameplay tools are planned for future work; no
-backend, authentication, or database is included.
+and includes reusable TypeScript dice and treasure generation engines. The mobile
+home screen generates individual treasure and party hoards with session-only
+Light, Dark, and System appearance. No backend, authentication, or database is
+included.
 
 ## Requirements
 
@@ -149,7 +149,61 @@ Invalid treasure types or non-callable RNGs throw `TypeError`; invalid CR bands 
 RNG samples throw `RangeError`. An invalid catalog, missing currency row/table, or
 empty eligible pool throws a descriptive error. Hoards validate the catalog before
 consuming RNG samples. No branch silently rerolls or substitutes another pool.
-There is no UI, persistence, pricing, denomination conversion, or party-size input.
+The engine remains independent of UI, persistence, pricing, denomination conversion,
+and party-size input.
+
+## Mobile treasure generator
+
+The existing home route renders `src/features/treasure/TreasureGeneratorScreen.tsx`
+and calls `generateTreasure` directly. Choose **Individual** or **Grupo**, select
+one of the four CR bands, and tap **Gerar Tesouro**. **Gerar Novamente** repeats
+generation using the current choices. Changing a selector clears the previous
+result so it cannot be mistaken for a result from the new configuration.
+
+The interface follows the approved yellow-accent reference: neutral surfaces,
+rounded cards, segmented controls, and simple monochrome icons. It shows exactly
+one currency denomination and at most one hoard magic item. Empty currency,
+no-magic outcomes, generation errors, attunement requirements, and unspecified
+equipment base types have explicit messages. UI text is Portuguese; official SRD
+item names remain in English. PC/PP/PE/PO/PL denote copper/silver/electrum/gold/
+platinum pieces; the engine's original denominations and quantities are preserved.
+
+Use the header's appearance button to select **Sistema**, **Claro**, or **Escuro**.
+System is the default and follows live OS changes. Manual overrides last only for
+the current app session. Theme state lives above the route in `ThemeProvider`;
+`src/theme/tokens.ts` defines both palettes, contrast, selected states, spacing,
+type sizes, corners, and shadows. Native safe areas, scrolling, a centered tablet
+width, 48-point touch targets, labeled radios, and expandable states support use
+during a session. SRD attribution and license links are accessible from the footer.
+
+**Filtros do Mestre** is an informational accordion before generation. The
+`MasterFilters` component accepts future controls through its `children` extension
+point. It currently applies no filters and exposes no switches or fake options.
+Currency inclusion, item inclusion, rarity restrictions, and budgets need separate
+product approval and engine API work before controls can be connected. No existing
+generation probabilities, catalog membership, or economic tables were changed.
+
+The only added application dependency is `expo-system-ui`, using the version
+recommended by the installed Expo SDK. Expo requires it for Android development
+builds to honor [`userInterfaceStyle: automatic`](https://docs.expo.dev/develop/user-interface/color-themes/).
+No web, icon, animation, storage, or UI-testing dependency was added to the project.
+
+Validation includes the existing 132 engine/data tests and the normal TypeScript,
+ESLint, and whitespace checks. The Android production bundle and Expo config
+introspection were also checked. A temporary React Native Web harness exercised
+the actual screen and engine in Chromium at 320/360/390/768 px, including real
+deterministic results, error/retry, theme switching, session reset, accessibility
+states, and touch targets. Preview-only tooling is outside this repository.
+The [light](docs/screenshots/treasure-generator-light.png) and
+[dark](docs/screenshots/treasure-generator-dark.png) screenshots are mobile web
+previews of the actual components, not Android emulator captures. On-device
+Android/iOS, TalkBack/VoiceOver, and native font scaling still require device QA.
+
+For device review: run the app in Expo Go or a development build, exercise both
+treasure types and all CR bands, change OS appearance with System selected, verify
+manual overrides and reset after a cold start, then check scrolling and larger
+system text with a screen reader. No treasure history or appearance preference is
+persisted.
 
 ## Project structure
 
@@ -158,17 +212,17 @@ app/
   _layout.tsx       Root navigation layout
   index.tsx         Home route
 src/
-  components/      Shared UI components, when needed
-  features/        Future feature-specific screens, components, and logic
+  components/      Shared controls, cards, and native icon primitives
+  features/treasure/ Generator screen, result card, and filter extension point
   lib/             Framework-independent utilities and their unit tests
+  theme/           Session appearance provider and reusable theme tokens
 app.json           Expo application configuration
 eslint.config.js   ESLint configuration
 tsconfig.json      Strict TypeScript configuration
 ```
 
-Keep routes in `app/` and feature implementations in `src/features/` as features
-are added. The empty source directories are reserved for future work; no shared
-abstractions are required yet.
+Keep routes in `app/`, screen components in `src/features/`, and generation logic
+in `src/lib/treasure/` so UI changes do not change the approved engine or data.
 
 Expo manages native project generation. Generated `android/`, `ios/`, local Expo
 state, and dependencies are excluded from version control. Use Expo-compatible
